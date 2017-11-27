@@ -53,9 +53,9 @@ mapCountryData(
   missingCountryCol = "grey",
   oceanCol='lightblue'
 )
-'''
+```
 
-'''{r}
+```{r}
 CountryGDP_TopBottom <- dbGetQuery(mydb, "SELECT Country, GDPGrowth FROM raw_clean WHERE Country IN ('China','Ireland', 'St.Kitts and Nevis', 'Burundi', 'Comoros', 'Russian Federation') AND Year=2000")
 mapped_TopBottom <- joinCountryData2Map(CountryGDP_TopBottom, joinCode = "NAME", nameJoinColumn = "Country")
 par(mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
