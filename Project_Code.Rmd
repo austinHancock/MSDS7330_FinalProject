@@ -1,6 +1,6 @@
 ---
 title: "Project Code"
-author: "Phil Edwards - Ernesto Carrera - Matthew Przybyla"
+author: "Philip Edwards - Austin Hancock - Keyue Wang"
 date: "11/27/2017"
 output: github_document
 ---
