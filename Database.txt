@@ -1,0 +1,397 @@
+/* 
+-----------------
+*IMPORT RAW DATA*
+-----------------
+ - Made an edit to the excel table by adding a 'y' to the beginning of each year column
+	- The reason for this is due to MySQL not allowing column names to be only digits
+    - Additionaly, the 'y' was placed at the beginning of the name to avoid having to wrap the column name in quotes
+ - Ran an initial import into MySQL from Excel using the MySQL add-in.
+	- Data was imported into the tables 'raw', 'raw_trade'
+*/
+
+
+/*Create a new table to unpivot the raw table*/
+CREATE TABLE raw_clean (
+	ID int AUTO_INCREMENT PRIMARY KEY,
+    raw_id int, 
+    Country varchar(100),
+    Year varchar(4),
+    GDPGrowth decimal(7,4)
+);
+SELECT DISTINCT Country FROM raw_clean;
+/*Unpivot the raw data into a clean format for normalization*/
+INSERT INTO raw_clean (raw_id, Country, Year, GDPGrowth)
+SELECT raw_id, Country, '1960' AS 'Year', y1960 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1961' AS 'Year', y1961 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1962' AS 'Year', y1962 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1963' AS 'Year', y1963 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1964' AS 'Year', y1964 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1965' AS 'Year', y1965 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1966' AS 'Year', y1966 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1967' AS 'Year', y1967 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1968' AS 'Year', y1968 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1969' AS 'Year', y1969 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1970' AS 'Year', y1970 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1971' AS 'Year', y1971 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1972' AS 'Year', y1972 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1973' AS 'Year', y1973 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1974' AS 'Year', y1974 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1975' AS 'Year', y1975 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1976' AS 'Year', y1976 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1977' AS 'Year', y1977 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1978' AS 'Year', y1978 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1979' AS 'Year', y1979 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1980' AS 'Year', y1980 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1981' AS 'Year', y1981 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1982' AS 'Year', y1982 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1983' AS 'Year', y1983 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1984' AS 'Year', y1984 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1985' AS 'Year', y1985 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1986' AS 'Year', y1986 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1987' AS 'Year', y1987 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1988' AS 'Year', y1988 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1989' AS 'Year', y1989 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1990' AS 'Year', y1990 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1991' AS 'Year', y1991 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1992' AS 'Year', y1992 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1993' AS 'Year', y1993 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1994' AS 'Year', y1994 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1995' AS 'Year', y1995 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1996' AS 'Year', y1996 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1997' AS 'Year', y1997 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1998' AS 'Year', y1998 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '1999' AS 'Year', y1999 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '2000' AS 'Year', y2000 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '2001' AS 'Year', y2001 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '2002' AS 'Year', y2002 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '2003' AS 'Year', y2003 AS 'GDPGrowth'
+FROM raw
+UNION ALL
+SELECT raw_id, Country, '2004' AS 'Year', y2004 AS 'GDPGrowth'
+FROM raw;
+
+
+/*Create a new table to unpivot the raw table*/
+CREATE TABLE raw_trade_clean (
+	ID int AUTO_INCREMENT PRIMARY KEY,
+    raw_trade_id int, 
+    Reporter varchar(100),
+    Partner varchar(100),
+    Product_Categories varchar(100),
+    Indicator_Type varchar(100),
+    Indicator varchar(100),
+    Year varchar(4),
+    Value decimal(15,4)
+);
+
+/*Unpivot the raw data into a clean format for normalization*/
+INSERT INTO raw_trade_clean (raw_trade_id, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, Year, Value)
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1988' AS 'Year', y1988 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1989' AS 'Year', y1989 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1990' AS 'Year', y1990 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1991' AS 'Year', y1991 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1992' AS 'Year', y1992 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1993' AS 'Year', y1993 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1994' AS 'Year', y1994 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1995' AS 'Year', y1995 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1996' AS 'Year', y1996 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1996' AS 'Year', y1996 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1997' AS 'Year', y1997 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1998' AS 'Year', y1998 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '1999' AS 'Year', y1999 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2000' AS 'Year', y2000 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2001' AS 'Year', y2001 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2002' AS 'Year', y2002 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2003' AS 'Year', y2003 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2004' AS 'Year', y2004 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2005' AS 'Year', y2005 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2006' AS 'Year', y2006 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2007' AS 'Year', y2007 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2008' AS 'Year', y2008 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2009' AS 'Year', y2009 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2010' AS 'Year', y2010 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2011' AS 'Year', y2011 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2012' AS 'Year', y2012 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2013' AS 'Year', y2013 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2014' AS 'Year', y2014 AS 'Value'
+FROM raw_trade
+UNION ALL
+SELECT ID, Reporter, Partner, Product_Categories, Indicator_Type, Indicator, '2015' AS 'Year', y2015 AS 'Value'
+FROM raw_trade;
+
+/*
+------------
+*CLEAN DATA*
+------------
+*/
+/*Return all countries found in GDP and Trade data*/
+SELECT DISTINCT Country FROM raw_clean;
+SELECT DISTINCT Reporter FROM raw_trade_clean;
+SELECT DISTINCT Partner FROM raw_trade_clean;
+
+/*Since we want to compare GDP to Trade data we need to find which countires that report trade are not in the GDP data*/
+/*Once we find these mising countries, check to see if a simple name change is needed between the tables and update, otherwise delete. 
+Ex. 'Ethipoia(exludes Eritrea)' to 'Ethiopia'*/
+/*Given the range of years in the two datasets, it may be necessary to check for country name changes*/
+SELECT DISTINCT Reporter
+FROM raw_trade_clean
+WHERE Reporter NOT IN (SELECT DISTINCT Country FROM raw_clean);
+SELECT DISTINCT Partner
+FROM raw_trade_clean
+WHERE Partner NOT IN (SELECT DISTINCT Country FROM raw_clean);
+
+/*UPDATE: Name changes*/
+UPDATE raw_trade_clean
+SET Reporter = 'Ethiopia'
+WHERE Reporter = 'Ethiopia(excludes Eritrea)';
+UPDATE raw_trade_clean
+SET Partner = 'Ethiopia'
+WHERE Partner = 'Ethiopia(excludes Eritrea)';
+UPDATE raw_clean
+SET Country = 'Macao'
+WHERE Country = 'Macao, China';
+UPDATE raw_clean
+SET Country = 'Serbia'
+WHERE Country = 'Serbia and Montenegro';
+UPDATE raw_trade_clean
+SET Reporter = 'Serbia'
+WHERE Reporter = 'Serbia, FR(Serbia/Montenegro)';
+UPDATE raw_trade_clean
+SET Partner = 'Serbia'
+WHERE Partner = 'Serbia, FR(Serbia/Montenegro)';
+UPDATE raw_trade_clean
+SET Reporter = 'St. Vincent, Grenadines'
+WHERE Reporter = 'St. Vincent and the Grenadines';
+UPDATE raw_trade_clean
+SET Partner = 'St. Vincent, Grenadines'
+WHERE Partner = 'St. Vincent and the Grenadines';
+UPDATE raw_clean
+SET Country = 'Venezuela'
+WHERE Country = 'Venezuela, RB';
+UPDATE raw_clean
+SET Country = 'Yemen'
+WHERE Country = 'Yemen, Rep.';
+
+
+/*DELETE: Remove data where Country not present in both datasets (Reporter or Partner for Trade)*/
+/*raw_clean: 8460 to 8325 records*/
+DELETE FROM raw_clean 
+WHERE Country IN (
+    'Lao PDR',
+    'Puerto Rico',
+    'Taiwan'
+);
+
+
+
+/*raw_trade_clean: 718156 to 301426 records*/
+DELETE FROM raw_trade_clean 
+WHERE Reporter IN (
+    'Andorra',
+    'Anguila',
+    'Aruba',
+    'Belgium-Luxembourg',
+    'Cayman Islands',
+    'Cook Islands',
+    'East Timor',
+    'European Union',
+    'Faeroe Islands',
+    'Fm Sudan',
+    'French Guiana',
+    'French Polynesia',
+    'Greenland',
+    'Guadeloupe',
+    'Martinique',
+    'Mayotte',
+    'Montenegro',
+    'Montserrat',
+    'Myanmar',
+    'New Caledonia',
+    'Occ.Pal.Terr',
+    'Other Asia, nes',
+    'Reunion',
+    'Turks and Caicos Isl.',
+    'Tuvalu',
+    'Wallis and Futura Isl.'
+)
+OR Partner IN (
+    'Andorra',
+    'Anguila',
+    'Aruba',
+    'Belgium-Luxembourg',
+    'Cayman Islands',
+    'Cook Islands',
+    'East Timor',
+    'European Union',
+    'Faeroe Islands',
+    'Fm Sudan',
+    'French Guiana',
+    'French Polynesia',
+    'Greenland',
+    'Guadeloupe',
+    'Martinique',
+    'Mayotte',
+    'Montenegro',
+    'Montserrat',
+    'Myanmar',
+    'New Caledonia',
+    'Occ.Pal.Terr',
+    'Other Asia, nes',
+    'Reunion',
+    'Turks and Caicos Isl.',
+    'Tuvalu',
+    'Wallis and Futura Isl.'
+);
+
+
+/*All trade data*/
+SELECT Reporter, 
+	Partner, 
+	Product_categories, 
+	Indicator_Type, 
+	Indicator, 
+    Value,
+	Year
+FROM raw_trade_clean 
+WHERE Reporter IN ('China', 'Ireland','St. Kitts and Nevis', 'Burundi', 'Comoros', 'Russian Federation') 
+	AND Year IN (2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991);
