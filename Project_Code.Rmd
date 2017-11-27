@@ -1,6 +1,13 @@
-#######################
-# Connect to MySQL DB #
-#######################
+---
+title: "Project Code"
+author: "Phil Edwards - Ernesto Carrera - Matthew Przybyla"
+date: "11/27/2017"
+output: github_document
+---
+
+
+# Connect to MySQL DB 
+
 install.packages("RMySQL")
 library(RMySQL)
 
@@ -16,9 +23,9 @@ mydb = dbConnect(
 
 
 
-########
-# Maps #
-########
+
+# Maps
+
 install.packages("rworldmap")
 library(rworldmap)
 
@@ -68,11 +75,11 @@ addMapLegendBoxes(
 )
 
 
-#Country maps
+# Country maps
 library(maps)
 library(ggmap)
 
-# China
+## China
 Export_China <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
 FROM raw_trade_clean
                            WHERE Reporter = 'China' AND
@@ -117,7 +124,7 @@ ChinaImport <- mapCountryData(
 ) 
 
 
-# Ireland
+## Ireland
 Export_Ireland <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
                            FROM raw_trade_clean
                            WHERE Reporter = 'Ireland' AND
@@ -163,7 +170,7 @@ mapCountryData(
 )
 
 
-# St.Kitts and Nevis
+## St.Kitts and Nevis
 Export_StKitts <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
                            FROM raw_trade_clean
                            WHERE Reporter = 'St. Kitts and Nevis' AND
@@ -209,7 +216,7 @@ mapCountryData(
 )
 
 
-# Burundi
+## Burundi
 Export_Burundi <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
                              FROM raw_trade_clean
                              WHERE Reporter = 'Burundi' AND
@@ -254,7 +261,7 @@ mapCountryData(
   addLegend='FALSE'
 )
 
-# Comoros
+## Comoros
 Export_Comoros <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
                              FROM raw_trade_clean
                              WHERE Reporter = 'Comoros' AND
@@ -300,7 +307,7 @@ mapCountryData(
 )
 
 
-# Russia
+## Russia
 Export_Russia <- dbGetQuery(mydb, "SELECT DISTINCT Partner, Indicator_Type
                              FROM raw_trade_clean
                              WHERE Reporter = 'Russian Federation' AND
@@ -346,13 +353,13 @@ mapCountryData(
 )
 
 
-##############
-# Trade Data #
-##############
+
+# Trade Data 
+
 library(ggplot2)
 
 
-#China
+## China
 Trade_China <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 China	World	Export	1992	84940.0100
 China	World	Import	1992	80585.3000
@@ -399,7 +406,7 @@ ggplot(Trade_China, aes(factor(Year), USMil, fill = Indicator_Type)) +
   scale_fill_brewer(palette = "Set1") +
   labs(title = "China Trade")
 
-#Ireland
+## Ireland
 Trade_Ireland <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 Ireland	World	Export	1992	28334.5300
 Ireland	World	Import	1992	22482.6900
@@ -446,8 +453,8 @@ ggplot(Trade_Ireland, aes(factor(Year), USMil, fill = Indicator_Type)) +
   scale_fill_brewer(palette = "Set1") +
   labs(title = "Ireland Trade")
 
-#St.Kitts & Nevis
-#Had to change name so 'text' could read country name
+## St.Kitts & Nevis
+### Had to change name so 'text' could read country name
 Trade_StKitts <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 St.KittsandNevis	World	Export	1993	26.9200
 St.KittsandNevis	World	Import	1993	117.9200
@@ -486,7 +493,7 @@ ggplot(Trade_StKitts, aes(factor(Year), USMil, fill = Indicator_Type)) +
   scale_fill_brewer(palette = "Set1") +
   labs(title = "St.Kitts & Nevis Trade")
 
-#Burundi
+## Burundi
 Trade_Burundi <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 Burundi	World	Export	1993	158.2600
 Burundi	World	Import	1993	221.2100
@@ -529,7 +536,7 @@ ggplot(Trade_Burundi, aes(factor(Year), USMil, fill = Indicator_Type)) +
   scale_fill_brewer(palette = "Set1") +
   labs(title = "Burundi Trade")
 
-#Comoros
+## Comoros
 Trade_Comoros <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 Comoros	World	Export	1995	11.0200
 Comoros	World	Import	1995	62.3900
@@ -564,8 +571,8 @@ ggplot(Trade_Comoros, aes(factor(Year), USMil, fill = Indicator_Type)) +
   scale_fill_brewer(palette = "Set1") +
   labs(title = "Comoros Trade")
 
-#Russia
-#Had to change name so 'text' could read country name
+## Russia
+### Had to change name so 'text' could read country name
 Trade_Russia <- read.table(header=TRUE, text='Reporter Partner Indicator_Type Year USMil 
 RussianFederation	World	Export	1996	88703.0000
 RussianFederation	World	Import	1996	61147.0000
