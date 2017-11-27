@@ -382,16 +382,3 @@ OR Partner IN (
     'Tuvalu',
     'Wallis and Futura Isl.'
 );
-
-
-/*All trade data*/
-SELECT Reporter, 
-	Partner, 
-	Product_categories, 
-	Indicator_Type, 
-	Indicator, 
-    Value,
-	Year
-FROM raw_trade_clean 
-WHERE Reporter IN ('China', 'Ireland','St. Kitts and Nevis', 'Burundi', 'Comoros', 'Russian Federation') 
-	AND Year IN (2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991);
