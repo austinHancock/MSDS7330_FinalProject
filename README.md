@@ -5,4 +5,4 @@ This is the Final Project for MSDS7330 - File Organization and Database Manageme
 
 # Files
 
-Database.txt - This contains the necessary to create the databases
+Database.txt - This contains the code used to create the databases
